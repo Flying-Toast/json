@@ -470,3 +470,11 @@ string_t json_stringify_pretty(const struct json *j) {
 	stringify_element(&s, 0, j);
 	return s;
 }
+
+struct json *json_object_get(struct json_object *obj, str_t key) {
+	for (size_t i = 0; i < obj->members_len; i++) {
+		if (str_eq(key, tostr(obj->members[i].key)))
+			return &obj->members[i].value;
+	}
+	return NULL;
+}

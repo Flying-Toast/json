@@ -57,4 +57,16 @@ static inline void string_append_char(string_t *a, char ch) {
 	string_append(a, str);
 }
 
+static inline _Bool str_eq(str_t a, str_t b) {
+	if (a.len != b.len)
+		return 0;
+
+	for (size_t i = 0; i < a.len; i++) {
+		if (a.ptr[i] != b.ptr[i])
+			return 0;
+	}
+
+	return 1;
+}
+
 #endif

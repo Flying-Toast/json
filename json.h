@@ -40,5 +40,6 @@ struct json {
 struct json *json_parse(str_t s);
 void json_free(struct json *j);
 string_t json_stringify_pretty(const struct json *j);
+struct json *json_object_get(struct json_object *obj, str_t key);
 
 #endif
